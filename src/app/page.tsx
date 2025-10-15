@@ -1,4 +1,11 @@
 import { WebhookButton } from "@/components/webhook-button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const systems = [
   {
@@ -13,27 +20,28 @@ const systems = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex w-full max-w-md flex-col items-center gap-6 text-center">
-        <div className="mb-4">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4 font-[family-name:var(--font-geist-sans)]">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl font-bold tracking-tight">
             Painel de Acionamento
-          </h1>
-          <p className="text-muted-foreground">
+          </CardTitle>
+          <CardDescription>
             Selecione um sistema para iniciar a atualização.
-          </p>
-        </div>
-
-        <div className="w-full space-y-4">
-          {systems.map((system) => (
-            <WebhookButton
-              key={system.label}
-              label={system.label}
-              webhookUrl={system.webhookUrl}
-            />
-          ))}
-        </div>
-      </main>
-    </div>
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {systems.map((system) => (
+              <WebhookButton
+                key={system.label}
+                label={system.label}
+                webhookUrl={system.webhookUrl}
+              />
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </main>
   );
 }
