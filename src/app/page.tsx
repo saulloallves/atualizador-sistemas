@@ -20,6 +20,10 @@ const systems = [
     label: "Atualizar Central de Ticket",
     webhookUrl: "https://n8n.girabot.com.br/webhook/att-sistema-ticket",
   },
+  {
+    label: "Atualizar Sistema de Cadastro",
+    webhookUrl: "https://n8n.girabot.com.br/webhook/att-sistema-cadastro",
+  },
 ];
 
 export default function Home() {
